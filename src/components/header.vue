@@ -43,7 +43,7 @@ export default {
         left: .1rem;
         color: #bbb;
         font-size: .36rem;
-      .header-input-kuang 
+      .header-input-kuang
         height: .6rem;
         background-color: #fff;
         border: 1px solid #ddd;
