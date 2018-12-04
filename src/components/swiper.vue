@@ -25,20 +25,12 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
+        loop: true
       },
-      // swiperList: [{
-      //   id: '01',
-      //   imgUrl: '../assets/img/1.jpg'
-      // }, {
-      //   id: '02',
-      //   imgUrl: '../assets/img/3.jpg'
-      // }, {
-      //   id: '03',
-      //   imgUrl: '../assets/img/3.jpg'
-      // }, {
-      //   id: '04',
-      //   imgUrl: '../assets/img/4.jpg'
-      // }]
+      swiperList: [{
+        id: '01',
+        imgUrl: '../assets/img/2.jpg'
+      }]
     }
   }
 }
