@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="swiperList">
       <!-- 轮播图片 -->
-      <swiper-slide v-for="item in swiperList" :key="item.id">
+      <swiper-slide v-for="item in bannerChild" :key="item.id">
         <img :src="item.imgUrl" class="swiper-img" alt="">
       </swiper-slide>
       <!-- 轮播小圆点 -->
@@ -14,6 +14,9 @@
 <script>
 export default {
   name: 'homeSwiper',
+  props: {
+    bannerChild: null
+  },
   data () {
     return {
       swiperOption: {
@@ -22,20 +25,13 @@ export default {
         loop: true,
         autoplay: 3000,
         speed: 1000
-      },
-      swiperList: [{
-        id: '01',
-        imgUrl: '/static/img/1.830420f.jpg'
-      }, {
-        id: '02',
-        imgUrl: '/static/img/2.3e6b674.jpg'
-      }, {
-        id: '03',
-        imgUrl: '/static/img/3.d4f8fb0.jpg'
-      }, {
-        id: '04',
-        imgUrl: '/static/img/4.e5ce73c.jpg'
-      }]
+      }
+      // swiperList: this.bannerChild
+    }
+  },
+  computed: {
+    swiperList () {
+      return this.bannerChild.length
     }
   }
 }

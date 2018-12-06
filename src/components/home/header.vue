@@ -8,7 +8,7 @@
       <input type="text" placeholder="输入城市/景点/游玩主题" class="header-input-kuang">
     </div>
     <div  class="header-right">
-      城市
+      {{this.cityChild}}
       <i class="iconfont icon-jiantouarrow486"></i>
     </div>
   </div>
@@ -16,7 +16,10 @@
 
 <script>
 export default {
-  name: 'homeHeader'
+  name: 'homeHeader',
+  props: {
+    cityChild: String
+  }
 }
 </script>
 
