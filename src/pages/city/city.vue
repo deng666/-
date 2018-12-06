@@ -1,12 +1,19 @@
-<template>
+<template> 
   <div>
-    城市选择
+    <city-header></city-header>
+    <city-hot></city-hot>
   </div>
 </template>
 
 <script>
+import cityHeader from './components/header'
+import cityHot from './components/hot'
 export default {
-  name: 'city'
+  name: 'city',
+  components: {
+    cityHeader,
+    cityHot
+  },
 }
 </script>
 
