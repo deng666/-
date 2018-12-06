@@ -7,10 +7,12 @@
       <i class="iconfont icon-sousuo"></i>
       <input type="text" placeholder="输入城市/景点/游玩主题" class="header-input-kuang">
     </div>
-    <div  class="header-right">
-      {{this.cityChild}}
-      <i class="iconfont icon-jiantouarrow486"></i>
-    </div>
+    <router-link to="/city">
+      <div  class="header-right">
+        {{this.cityChild}}
+        <i class="iconfont icon-jiantouarrow486"></i>
+      </div>
+    </router-link>    
   </div>
 </template>
 
