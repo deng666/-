@@ -1,6 +1,7 @@
 {
   "ret": true,
   "data": {
+    "local": "北京",
     "hotCities": [{
       "id": 1,
       "spell": "beijing",
