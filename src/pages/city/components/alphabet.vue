@@ -22,7 +22,8 @@ export default {
 .city-right-alphabet
   position: absolute;
   top: 50%;
-  right: .2rem;
+  right: 0;
+  padding: 0 .2rem;
   color: #00bcd4;
   line-height: .5rem;
   transform: translateY(-50%);
