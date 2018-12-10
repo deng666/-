@@ -1,9 +1,9 @@
-<template> 
+<template>
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cityChild="clityDetail"></city-list>
-    <city-alphabet></city-alphabet> 
+    <city-list :localChild="local" :hot="hotCity" :cities="cities"></city-list>
+    <city-alphabet :alphabetChild="alphabetList"></city-alphabet>
   </div>
 </template>
 
@@ -16,13 +16,11 @@ import axios from 'axios'
 export default {
   name: 'city',
   data () {
-    return {      
-      clityDetail: {
-        local: '',
-        hotCity: [],
-        alphabetList: [],
-        // provincial: []
-      }
+    return {
+      local: '',
+      hotCity: [],
+      alphabetList: [],
+      cities: {}
     }
   },
   components: {
@@ -32,19 +30,21 @@ export default {
     cityAlphabet
   },
   methods: {
-    getCityInfo() {
+    getCityInfo () {
       axios.get('/api/city.json').then(res => {
         res = res.data
         if (res.ret && res.data) {
-          debugger
           let data = res.data
-          // this.clityDetail.local = data.local
+          this.cities = data.cities
+          this.local = data.local
+          this.hotCity = data.hotCities
+          this.alphabetList = data.alphabetList
         }
       })
     }
   },
   mounted () {
-    this.getCityInfo()
+    this.getCityInfo ()
   }
 }
 </script>

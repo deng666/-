@@ -36,7 +36,11 @@ export default {
     homeWeek
   },
   methods: {
+    // getHomeInfo () {
+    //   axios.get('/api/index.json').then(this.getHomeInfoSucc)
+    // },
     getHomeInfo () {
+      debugger
       axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {

@@ -4,8 +4,7 @@
       <div class="city-header-left">
         <i class="iconfont icon-fanhui"></i>
       </div>
-    </router-link>
-    城市选择
+    </router-link>城市选择
   </div>
 </template>
 
@@ -32,5 +31,3 @@ export default {
     .iconfont
       color: #fff;
 </style>
-
-

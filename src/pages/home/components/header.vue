@@ -12,7 +12,7 @@
         {{this.cityChild}}
         <i class="iconfont icon-jiantouarrow486"></i>
       </div>
-    </router-link>    
+    </router-link>
   </div>
 </template>
 

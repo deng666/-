@@ -4,91 +4,19 @@
       <div class="list-wrapper">
         <div class="list-title">当前位置</div>
         <div class="list-detail">
-          <button class="list-local">北京</button>
+          <button class="list-local">{{localChild}}</button>
         </div>
       </div>
       <div class="list-wrapper">
         <div class="list-title">热门城市</div>
         <div class="list-detail">
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
-          <button class="list-local">北京</button>
+          <button class="list-local" v-for="item in hot" :key="item.id">{{item.name}}</button>
         </div>
       </div>
-      <div class="list-wrapper">
-        <div class="list-title">A</div>
+      <div class="list-wrapper" v-for="(item, key) in cities" :key="key">
+        <div class="list-title">{{key}}</div>
         <div class="list-item">
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-        </div>
-      </div>
-      <div class="list-wrapper">
-        <div class="list-title">A</div>
-        <div class="list-item">
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-        </div>
-      </div>
-      <div class="list-wrapper">
-        <div class="list-title">A</div>
-        <div class="list-item">
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-        </div>
-      </div>
-      <div class="list-wrapper">
-        <div class="list-title">A</div>
-        <div class="list-item">
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-        </div>
-      </div>
-      <div class="list-wrapper">
-        <div class="list-title">A</div>
-        <div class="list-item">
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
-          <div class="item">阿里尔</div>
+          <div class="item" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -99,7 +27,17 @@
 import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
+  props: {
+    localChild: String,
+    hot: Array,
+    cities: Object
+  },
+  data () {
+    return {
+    }
+  },
   mounted () {
+    console.log(this.hot)
     this.scroll = new BScroll(this.$refs.wrapper)
   }
 }
@@ -125,7 +63,7 @@ export default {
     background-color: #fff;
     margin-top: .2rem;
     padding: 0 0 0 .2rem;
-    overflow: hidden;     
+    overflow: hidden;
     .list-local
       width: 30%;
       float: left;
