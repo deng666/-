@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :localChild="local" :hot="hotCity" :cities="cities"></city-list>
-    <city-alphabet :alphabetChild="alphabetList"></city-alphabet>
+    <city-list :localChild="local" :hot="hotCity" :cities="cities" :letter="letter"></city-list>
+    <city-alphabet :alphabetChild="alphabetList" @change="handLetterChange"></city-alphabet>
   </div>
 </template>
 
@@ -20,7 +20,9 @@ export default {
       local: '',
       hotCity: [],
       alphabetList: [],
-      cities: {}
+      cities: {},
+      //当前选择的字母
+      letter: ''
     }
   },
   components: {
@@ -41,6 +43,10 @@ export default {
           this.alphabetList = data.alphabetList
         }
       })
+    },
+    handLetterChange (letter) {
+      this.letter = letter
+      // console.log(letter)
     }
   },
   mounted () {

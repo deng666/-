@@ -13,12 +13,13 @@
           <button class="list-local" v-for="item in hot" :key="item.id">{{item.name}}</button>
         </div>
       </div>
-      <div class="list-wrapper" v-for="(item, key) in cities" :key="key">
+      <div class="list-wrapper" v-for="(item, key) in cities" :key="key" :ref="key">
         <div class="list-title">{{key}}</div>
         <div class="list-item">
           <div class="item" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
         </div>
       </div>
+      <div class="city-place"></div>
     </div>
   </div>
 </template>
@@ -30,20 +31,40 @@ export default {
   props: {
     localChild: String,
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   data () {
     return {
     }
   },
   mounted () {
-    console.log(this.hot)
     this.scroll = new BScroll(this.$refs.wrapper)
+  },
+  // watch: {
+  //   letter (val) {
+  //     if (val) {
+  //       let element = this.$refs[val][0]
+  //       console.log(element)
+  //       this.scroll.scrollToElement(element)
+  //     }
+  //   }
+  // },
+  watch: {
+    letter () {
+      if (this.letter) {
+        let element = this.$refs[this.letter][0]
+        console.log(element)
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.city-place
+  height: 1rem;
 .list
   position: absolute;
   top: 1.78rem;
