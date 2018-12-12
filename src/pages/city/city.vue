@@ -2,7 +2,7 @@
   <div>
     <city-header></city-header>
     <city-search :citiesList="cities"></city-search>
-    <city-list :localChild="local" :hot="hotCity" :cities="cities" :letter="letter"></city-list>
+    <city-list :hot="hotCity" :cities="cities" :letter="letter"></city-list>
     <city-alphabet :alphabetChild="alphabetList" @change="handLetterChange"></city-alphabet>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   name: 'city',
   data () {
     return {
-      local: '',
+      // local: '',
       hotCity: [],
       alphabetList: [],
       cities: {},
@@ -38,7 +38,7 @@ export default {
         if (res.ret && res.data) {
           let data = res.data
           this.cities = data.cities
-          this.local = data.local
+          // this.local = data.local
           this.hotCity = data.hotCities
           this.alphabetList = data.alphabetList
         }

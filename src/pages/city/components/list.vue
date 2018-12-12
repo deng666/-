@@ -4,19 +4,19 @@
       <div class="list-wrapper">
         <div class="list-title">当前位置</div>
         <div class="list-detail">
-          <button class="list-local">{{localChild}}</button>
+          <button class="list-local">{{this.$store.state.city}}</button>
         </div>
       </div>
       <div class="list-wrapper">
         <div class="list-title">热门城市</div>
         <div class="list-detail">
-          <button class="list-local" v-for="item in hot" :key="item.id">{{item.name}}</button>
+          <button class="list-local" v-for="item in hot" :key="item.id" @click="cityAction(item.name)">{{item.name}}</button>
         </div>
       </div>
       <div class="list-wrapper" v-for="(item, key) in cities" :key="key" :ref="key">
         <div class="list-title">{{key}}</div>
         <div class="list-item">
-          <div class="item" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div class="item" v-for="innerItem in item" :key="innerItem.id" @click="cityAction(innerItem.name)">{{innerItem.name}}</div>
         </div>
       </div>
       <div class="city-place"></div>
@@ -29,13 +29,20 @@ import BScroll from 'better-scroll'
 export default {
   name: 'CityList',
   props: {
-    localChild: String,
+    // localChild: String,
     hot: Array,
     cities: Object,
     letter: String
   },
   data () {
     return {
+    }
+  },
+  methods: {
+    cityAction (city) {
+      // this.$store.state.city = city
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
     }
   },
   mounted () {

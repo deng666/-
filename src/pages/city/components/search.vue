@@ -6,7 +6,7 @@
       </div>
       <div class="search-content" v-show="keyword" ref="search">
         <ul class="search-item">
-          <li class="search-list" v-for="item in list" :key="item.id">
+          <li class="search-list" v-for="item in list" :key="item.id"  @click="cityAction(item.name)">
             {{item.name}}
           </li>
         </ul>
@@ -35,8 +35,15 @@ export default {
       return !this.list.length
     }
   },
+  methods: {
+    cityAction (city) {
+      // this.$store.state.city = city
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
+  },
   mounted () {
-    this.scroll = new BScroll(this.$refs.search)
+    this.scroll = new BScroll(this.$refs.search)   
   },
   watch: {
     keyword () {
