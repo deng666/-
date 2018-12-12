@@ -31,18 +31,15 @@ export default {
     display: flex;
     background-color: $bgColor;
     overflow: hidden;
-    .header-left,.header-right
+    .header-left
       width: .6rem;
       color: #fff;
       text-align: center;
     .header-right
-      width: 1.2rem;
-      position: relative;
-      padding-right: .4rem;
-      .iconfont
-        position: absolute;
-        top: 0;
-        right: .1rem;
+      min-width: 1.2rem;
+      padding: 0 .1rem;
+      color: #fff;
+      text-align: center;
     .header-input
       flex: 1;
       position: relative;
