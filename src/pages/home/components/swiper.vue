@@ -6,7 +6,7 @@
         <img :src="item.imgUrl" class="swiper-img" alt="">
       </swiper-slide>
       <!-- 轮播小圆点 -->
-      <div class="swiper-pagination"  slot="pagination"></div>
+      <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </div>
 </template>

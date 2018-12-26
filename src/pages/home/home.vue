@@ -26,7 +26,8 @@ export default {
       bannerDate: '',
       iconData: [],
       recommendData: [],
-      weekData: []
+      weekData: [],
+      lang:'en'
     }
   },
   components: {

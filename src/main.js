@@ -6,6 +6,8 @@ import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 // import './assets/style/reaet.css'
 // import './assets/style/border.css'
 // import './assets/font/iconfont.css'
@@ -17,6 +19,8 @@ import 'swiper/dist/css/swiper.css'
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
+Vue.use(ElementUI)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

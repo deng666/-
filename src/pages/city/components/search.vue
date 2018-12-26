@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.search)   
+    this.scroll = new BScroll(this.$refs.search)
   },
   watch: {
     keyword () {
@@ -61,7 +61,7 @@ export default {
             if (value.spell.indexOf(this.keyword) > -1 || value.name.indexOf(this.keyword) > -1) {
               result.push(value)
             }
-          });
+          })
         }
         this.list = result
       }, 100)

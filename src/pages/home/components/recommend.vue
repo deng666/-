@@ -2,28 +2,31 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <div class="recommend-hot-list">
-      <ul v-if="recommendList">
-        <li class="recommend-item" v-for="item in recommengChild" :key="item.id">
-          <div class="item-img-wrapper">
-            <img :src="item.imgUrl" alt="">
-          </div>
-          <div class="item-info">
-            <div class="item-title">
-              <span class="item-address">{{item.address}}</span>
-              {{item.title}}
-            </div>
-            <div class="item-operation">
-              <div class="item-right-common">
-                <i class="iconfont icon-yanjing"></i>
-                {{item.common}}
+      <ul v-if="recommendList"> 
+          <li class="recommend-item" v-for="item in recommengChild" :key="item.id" >
+            <!-- @click="goDetail(item.id)" -->
+            <router-link :to="'/detail?id=' + item.id">
+              <div class="item-img-wrapper">
+                <img :src="item.imgUrl" alt="">
               </div>
-              <span class="item-rmb">¥</span>{{item.perice}}
-            </div>
-            <div class="item-btn-wrap">
-              <button class="item-btn">查看详情</button>
-            </div>
-          </div>
-        </li>
+              <div class="item-info">
+                <div class="item-title">
+                  <span class="item-address">{{item.address}}</span>
+                  {{item.title}}
+                </div>
+                <div class="item-operation">
+                  <div class="item-right-common">
+                    <i class="iconfont icon-yanjing"></i>
+                    {{item.common}}
+                  </div>
+                  <span class="item-rmb">¥</span>{{item.perice}}
+                </div>
+                <div class="item-btn-wrap">
+                  <button class="item-btn">查看详情</button>
+                </div>
+              </div>
+            </router-link>
+          </li>
       </ul>
     </div>
   </div>
@@ -72,6 +75,17 @@ export default {
   computed: {
     recommendList () {
       return this.recommengChild.length
+    }
+  },
+  methods: {
+    goDetail (id) {
+      // console.log(id)
+      this.$router.push({
+        path: '/detail',
+        query: {
+          id: id
+        }
+      })
     }
   }
 }
