@@ -39,15 +39,6 @@ export default {
   },
   created () {
     window.addEventListener('scroll', this.handleScroll)
-    // window.addEventListener('scroll', function () {
-    //   var scrollTop = document.documentElement.scrollTop
-    //   console.log(scrollTop)
-    //   if (scrollTop > 60) {
-    //     this.showAbs = false
-    //   } else {
-    //     this.showAbs = true
-    //   }
-    // })
   }
 }
 </script>
@@ -68,6 +59,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 .header-fixed
+  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
