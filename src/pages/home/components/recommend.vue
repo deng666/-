@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <div class="recommend-hot-list">
-      <ul v-if="recommendList"> 
+      <ul v-if="recommendList">
           <li class="recommend-item" v-for="item in recommengChild" :key="item.id" >
             <!-- @click="goDetail(item.id)" -->
             <router-link :to="'/detail?id=' + item.id">

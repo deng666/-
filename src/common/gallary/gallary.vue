@@ -4,7 +4,7 @@
       <swiper :options="swiperOptions">
         <!-- 轮播图片 -->
         <swiper-slide v-for="item in imgs" :key="item.index">
-          <img :src="item" class="gallary-img" alt="">
+          <img :src="item.img" class="gallary-img" alt="">
         </swiper-slide>
         <!-- 轮播小圆点 -->
         <div class="swiper-pagination" slot="pagination"></div>
@@ -62,4 +62,3 @@ export default {
       color: #fff;
       bottom: -1rem;
 </style>
-

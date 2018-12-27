@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner-wrapper" @click="swiperAction">
-      <img class="banner-img" :src="this.bannerShow" alt="" />
+      <img class="banner-img" :src="this.bannerImg" alt="" />
       <div class="banner-info">
         <div class="banner-tittle">上海杜莎夫人蜡像馆（AAAA景区）</div>
         <div class="banner-number">
@@ -9,7 +9,7 @@
         </div>
       </div>
     </div>
-    <gallary-img :imgs="imgList" v-show="showGallary" @close="closeGallary"></gallary-img>
+    <gallary-img :imgs="gallaryImgs" v-show="showGallary" @close="closeGallary"></gallary-img>
   </div>
 </template>
 
@@ -17,23 +17,28 @@
 import gallaryImg from '@/common/gallary/gallary'
 export default {
   name: 'detailBanner',
+  props: {
+    gallaryImgs: null,
+    bannerImg: null
+  },
   data () {
     return {
-      imgList: ['http://img1.qunarzz.com/sight/p0/1704/c9/c936f3fccfc6d7eda3.img.jpg_600x330_1be7ea5e.jpg', 'http://img1.qunarzz.com/sight/p0/1704/56/56de8e7522362c11a3.img.jpg_r_800x800_ab22cddc.jpg'],
+      // imgList: this.gallaryImgs,
       showGallary: false
     }
   },
-  computed: {
-    bannerShow () {
-      return this.imgList[0]
-    }
-  },
+  // computed: {
+  //   bannerShow () {
+  //     return this.imgList[0]
+  //   }
+  // },
   components: {
     gallaryImg
   },
   methods: {
     aaa () {
       // console.log(this.imgList)
+      console.log(this.gallaryImgs)
       console.log(this.$route.query.id)
     },
     swiperAction () {

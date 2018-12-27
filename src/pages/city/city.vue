@@ -20,9 +20,8 @@ export default {
       // local: '',
       hotCity: [],
       alphabetList: [],
-      cities: {},
-      //当前选择的字母
-      letter: ''
+      cities: {},      
+      letter: ''  //当前选择的字母
     }
   },
   components: {
