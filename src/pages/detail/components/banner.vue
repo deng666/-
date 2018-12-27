@@ -9,12 +9,15 @@
         </div>
       </div>
     </div>
-    <gallary-img :imgs="gallaryImgs" v-show="showGallary" @close="closeGallary"></gallary-img>
+    <fade-animation>
+      <gallary-img :imgs="gallaryImgs" v-show="showGallary" @close="closeGallary"></gallary-img>
+    </fade-animation>    
   </div>
 </template>
 
 <script>
 import gallaryImg from '@/common/gallary/gallary'
+import fadeAnimation from '@/common/fade/fadeAnimation'
 export default {
   name: 'detailBanner',
   props: {
@@ -31,11 +34,11 @@ export default {
     }
   },
   components: {
-    gallaryImg
+    gallaryImg,
+    fadeAnimation
   },
   methods: {
     aaa () {
-      // console.log(this.imgList)
       console.log(this.gallaryImgs)
       console.log(this.$route.query.id)
     },
