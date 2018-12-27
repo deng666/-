@@ -1,6 +1,6 @@
 <template>
   <div>
-    <detail-banner :gallaryImgs="gallaryImg" :bannerImg="bannerImg"></detail-banner>
+    <detail-banner :gallaryImgs="gallaryImg"></detail-banner>
     <detail-header></detail-header>
     <div class="content">
       <detail-list :listChild="list"></detail-list>
@@ -38,7 +38,7 @@ export default {
         let data = res.data
         console.log(data)
         this.list = data.categoryList
-        this.bannerImg = data.bannerImg
+        // this.bannerImg = data.bannerImg
         this.gallaryImg = data.gallaryImgs
         console.log(this.gallaryImg)
       }

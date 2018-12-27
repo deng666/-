@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="banner-wrapper" @click="swiperAction">
-      <img class="banner-img" :src="this.bannerImg" alt="" />
+      <img class="banner-img" :src="bannerShow.img" alt="" />
       <div class="banner-info">
         <div class="banner-tittle">上海杜莎夫人蜡像馆（AAAA景区）</div>
         <div class="banner-number">
@@ -18,20 +18,18 @@ import gallaryImg from '@/common/gallary/gallary'
 export default {
   name: 'detailBanner',
   props: {
-    gallaryImgs: null,
-    bannerImg: null
+    gallaryImgs: null
   },
   data () {
     return {
-      // imgList: this.gallaryImgs,
       showGallary: false
     }
   },
-  // computed: {
-  //   bannerShow () {
-  //     return this.imgList[0]
-  //   }
-  // },
+  computed: {
+    bannerShow () {
+      return this.gallaryImgs[0]
+    }
+  },
   components: {
     gallaryImg
   },
