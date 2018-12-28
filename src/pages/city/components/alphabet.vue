@@ -1,7 +1,7 @@
 <template>
   <div class="city-right-alphabet">
     <ul>
-      <li v-for="item in letters" :key="item" @click="handLetter" @touchstart="handTouchStrat" @touchmove="handTouchMove" @touchend="handTouchEnd" :ref="item">
+      <li v-for="item in letters" :key="item" @click="handLetter" @touchstart.prevent="handTouchStrat" @touchmove="handTouchMove" @touchend="handTouchEnd" :ref="item">
          <!-- @touchstart="handTouchStrat" @touchmove="handTouchMove" @touchend="handTouchEnd" :ref="item" -->
         {{item}}
       </li>
